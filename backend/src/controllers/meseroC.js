@@ -1,19 +1,20 @@
 const Mesero = require('../models/mesero');
 const jwt = require('jsonwebtoken');
+const config = require('../database/global');
+const bcrypt = require('bcryptjs');
 
 // Crear nuevo mesero
 const addMesero = async (req, res) => {
   try {
     const { nombre, correo, telefono, contraseña } = req.body;
 
-    // Encriptar contraseña usando JWT
-    const contraseñaEncriptada = jwt.sign({ contraseña }, 'mi_secreto_jwt_prueba');
+    const hashedPassword = await bcrypt.hash(contraseña, 10);
 
     const nuevoMesero = await Mesero.create({
       nombre,
       correo,
       telefono,
-      contraseña: contraseñaEncriptada,
+      contraseña: hashedPassword,
       activo: true, // Los meseros se crean activos por defecto
     });
 
@@ -75,11 +76,21 @@ const login = async (req, res) => {
     const user = await Mesero.findOne({ correo });
     if (!user) return res.status(400).json({ message: 'Credenciales inválidas' });
 
-    // Compara la contraseña
-    const isMatch = await bcrypt.compare(contraseña, user.contraseña);
-    if (!isMatch) return res.status(400).json({ message: 'Credenciales inválidas' });
+    const validPassword = await user.validPassword(contraseña);
 
-    res.status(200).json({ message: 'Inicio de sesión exitoso' });
+    console.log('Contraseña ingresada:', contraseña);
+    console.log('Contraseña almacenada:', user.contraseña);
+    
+    if (!validPassword) {
+        return res.status(401).json({ auth: false, token: null });
+    }
+    
+
+    const token = jwt.sign({ id: user._id }, config.secret, {
+        expiresIn: 60 * 60 * 24
+    })
+
+    res.json({ auth: true, token });
   } catch (error) {
     res.status(500).send(error.message);
   }
