@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { NavbarComponent } from '../../navbar/navbar.component';
+import { NavbarComponent } from '../../pages/navbar/navbar.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MeseroService } from '../../services/mesero.service';
 import { Meseros } from '../../models/meseros';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FooterComponent } from '../../pages/footer/footer.component';
 
 @Component({
   selector: 'app-update-mesero',
   standalone: true,
-  imports: [NavbarComponent, ReactiveFormsModule],
+  imports: [NavbarComponent, ReactiveFormsModule, FooterComponent],
   templateUrl: './update-mesero.component.html',
   styleUrl: './update-mesero.component.css'
 })

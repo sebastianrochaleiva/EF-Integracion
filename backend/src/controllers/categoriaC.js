@@ -1,6 +1,6 @@
 const Categoria = require('../models/categoria')
 
-const getCategoria = async(req, res) => {
+const getCategorias = async(req, res) => {
     try {
         const categorias = await Categoria.find();
         console.log(categorias);
@@ -10,6 +10,16 @@ const getCategoria = async(req, res) => {
         res.status(500).send(error.message);
     }
 }
+
+const getCategoria = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const categorias = await Categoria.findById(id);
+    res.status(200).json({ message: "Categoría encontrada", data: categorias });
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};
 
 const deleteCategoria = async (req, res) => {
     try {
@@ -60,6 +70,7 @@ const updateCategoria = async (req, res) => {
 
 
 module.exports = {
+    getCategorias,
     getCategoria,
     deleteCategoria,
     addCategoria,

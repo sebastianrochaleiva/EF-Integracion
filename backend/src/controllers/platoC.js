@@ -1,9 +1,18 @@
 const Plato = require('../models/plato');
 
-const getPlato = async (req, res) => {
+const getPlatos = async (req, res) => {
     try {
         const { id } = req.params;
         const plato = await Plato.findById(id);
+        res.status(200).json({ message: "Platos encontrados", data: plato });
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+};
+
+const getPlato = async (req, res) => {
+    try {
+        const plato = await Plato.find();
         res.send(plato);
     } catch (error) {
         res.status(500).send(error.message);
@@ -45,4 +54,4 @@ const deletePlato = async (req, res) => {
     }
 };
 
-module.exports = { getPlato, addPlato, updatePlato, deletePlato };
+module.exports = { getPlatos, addPlato, updatePlato, deletePlato, getPlato };

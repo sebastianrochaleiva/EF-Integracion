@@ -1,13 +1,78 @@
 /* Global styles */
 :root {
-    --primary-dark: #1E3A8A;
-    --primary-light: #3B82F6;
+    --primary-dark: #14151a;
+    --primary-light: #646a70;
     --accent: #FACC15;
     --text-dark: #1F2937;
     --text-light: #F9FAFB;
     --bg-light: #F9FAFB;
-    --bg-dark: #343a40;
+    --bg-dark-100: #343a40;
+    --bg-dark-200: #292929;
     --gray-light: #E5E7EB;
+}
+
+body{
+    background-color: var(--bg-dark-200);
+}
+
+h2{
+    color: var(--accent);
+}
+
+h3{
+    padding-bottom: 20px;
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent);
+}
+
+h4{
+    color: var(--text-light);
+}
+
+p{
+    color: var(--text-light);
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: var(--primary-dark);
+    height: 120px;
+    padding: 0 1.5rem;
+}
+
+.navbar .nav-link {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+    color: var(--accent);
+}
+
+.navbar .nav-link.active {
+    color: var(--primary-light);
+    border-bottom: 2px solid var(--accent);
+}
+
+.navbar-toggler {
+    border-color: var(--text-light);
+}
+
+.navbar-toggler-icon {
+    background-color: var(--text-light);
+    width: 25px;
+    height: 3px;
+    display: block;
+    margin: 5px 0;
+}
+
+/* card Styles */
+.card{
+    background-color: var(--primary-dark);
+    color: var(--text-light);
 }
 
 /* Hero Section */
@@ -35,6 +100,7 @@
 .info ul {
     list-style: none;
     padding: 0;
+    color: var(--text-light);
 }
 
 .info ul li::before {
@@ -42,9 +108,13 @@
     margin-right: 10px;
 }
 
+#content{
+    min-height: 100vh;
+}
+
 /* Footer */
 footer {
-    background: var(--bg-dark);
+    background: var(--bg-dark-100);
     color: var(--text-light);
     padding: 20px 0;
     text-align: center;
@@ -65,7 +135,7 @@ footer {
     overflow-x: auto;
     border-radius: 0.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: var(--bg-light);
+    background-color: var(--bg-dark-100);
 }
 
 .table {
@@ -77,7 +147,7 @@ footer {
     font-weight: 600;
     text-align: left;
     padding: 0.75rem;
-    background-color: var(--bg-dark);
+    background-color: var(--primary-dark);
     color: var(--text-light);
 }
 
@@ -90,16 +160,6 @@ footer {
 .table tbody tr:hover {
     background-color: var(--gray-light);
 }
-
-/* Status Indicator
-.status-dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: var(--gray-light);
-}
-     */
 
 .status-dot.active {
     color: green;

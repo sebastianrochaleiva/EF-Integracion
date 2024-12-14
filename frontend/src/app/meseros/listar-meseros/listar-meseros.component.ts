@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { NavbarComponent } from '../../navbar/navbar.component';
+import { NavbarComponent } from '../../pages/navbar/navbar.component';
 import { Meseros } from '../../models/meseros';
 import { MeseroService } from '../../services/mesero.service';
 import { NgClass, NgFor } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { FooterComponent } from '../../pages/footer/footer.component';
 
 
 @Component({
   selector: 'app-listar-meseros',
   standalone: true,
-  imports: [NavbarComponent, NgFor, NgClass, RouterLink],
+  imports: [NavbarComponent, NgFor, NgClass, RouterLink, FooterComponent],
   templateUrl: './listar-meseros.component.html',
   styleUrl: './listar-meseros.component.css'
 })

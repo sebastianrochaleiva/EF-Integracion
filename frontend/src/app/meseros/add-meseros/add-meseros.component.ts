@@ -4,12 +4,13 @@ import { Router } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { MeseroService } from '../../services/mesero.service';
 import { Meseros } from '../../models/meseros';
-import { NavbarComponent } from '../../navbar/navbar.component';
+import { NavbarComponent } from '../../pages/navbar/navbar.component';
+import { FooterComponent } from '../../pages/footer/footer.component';
 
 @Component({
   selector: 'app-add-meseros',
   standalone: true,
-  imports: [NgIf, ReactiveFormsModule, NavbarComponent],
+  imports: [NgIf, ReactiveFormsModule, NavbarComponent, FooterComponent],
   templateUrl: './add-meseros.component.html',
   styleUrl: './add-meseros.component.css'
 })

@@ -1,45 +1,50 @@
 <app-navbar></app-navbar>
-<section class="container mt-5">
-    <div class="d-flex flex-column align-items-center">
-        <h1 class="fw-bold text-dark mb-4">Gestión de Meseros</h1>
-        <div class="col-12">
-            <h2 class="fw-semibold text-muted mb-3">Lista de Meseros</h2>
-            <div class="table-container">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Nombre</th>
-                            <th>Correo</th>
-                            <th>Teléfono</th>
-                            <th class="text-center">Activo</th>
-                            <th class="text-center">Eliminar</th>
-                            <th class="text-center">Actualizar</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let mesero of meseros; let i = index" >
-                            <td >{{ i + 1 }}</td>
-                            <td class="text-uppercase">{{ mesero.nombre }}</td>
-                            <td>{{ mesero.correo }}</td>
-                            <td>{{ mesero.telefono }}</td>
-                            <td class="text-center ">
-                                <div class="status-dot " [ngClass]="mesero.activo ? 'active' : 'inactive'">
-                                    <i class="status-dot"
-                                        [ngClass]="mesero.activo ? 'bi-check-square-fill' : 'bi-x-square-fill'"></i>
-                                </div>
-                            </td>
-                            <td class="text-center">
-                                <button (click)="eliminarMesero(mesero._id)" class="btn btn-danger">Eliminar</button>
-                            </td>
-                            <td class="text-center">
-                                <button [routerLink]="['/updateMesero', mesero._id]" class="btn btn-warning">Actualizar</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+<div id="content">
+    <section class="container mt-5">
+        <div class="d-flex flex-column align-items-center">
+            <h1 class="fw-bold text-light mb-4">Gestión de Meseros</h1>
+            <div class="col-12">
+                <h3 class="fw-semibold mb-3">Lista de Meseros</h3>
+                <div class="table-container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nombre</th>
+                                <th>Correo</th>
+                                <th>Teléfono</th>
+                                <th class="text-center">Activo</th>
+                                <th class="text-center">Eliminar</th>
+                                <th class="text-center">Actualizar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let mesero of meseros; let i = index">
+                                <td>{{ i + 1 }}</td>
+                                <td class="text-uppercase">{{ mesero.nombre }}</td>
+                                <td>{{ mesero.correo }}</td>
+                                <td>{{ mesero.telefono }}</td>
+                                <td class="text-center ">
+                                    <div class="status-dot " [ngClass]="mesero.activo ? 'active' : 'inactive'">
+                                        <i class="status-dot"
+                                            [ngClass]="mesero.activo ? 'bi-check-square-fill' : 'bi-x-square-fill'"></i>
+                                    </div>
+                                </td>
+                                <td class="text-center">
+                                    <button (click)="eliminarMesero(mesero._id)"
+                                        class="btn btn-danger">Eliminar</button>
+                                </td>
+                                <td class="text-center">
+                                    <button [routerLink]="['/updateMesero', mesero._id]"
+                                        class="btn btn-primary">Actualizar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <a class="btn btn-lg btn-warning mt-4" routerLink="/addMesero">Añadir</a>
             </div>
-            <a class="btn btn-lg btn-primary mt-4" routerLink="/addMesero">Añadir</a>
         </div>
-    </div>
-</section>
+    </section>
+</div>
+<app-footer />

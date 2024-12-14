@@ -10,6 +10,15 @@ const getCliente = async (req, res) => {
     }
 };
 
+const getClientes = async (req, res) => {
+    try {
+        const cliente = await Cliente.find();
+        res.status(200).json({ message: "Clientes encontrados", data: cliente });
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+};
+
 const addCliente = async (req, res) => {
     try {
         const { nombre, email, telefono, dni } = req.body;
@@ -45,4 +54,4 @@ const deleteCliente = async (req, res) => {
     }
 };
 
-module.exports = { getCliente, addCliente, updateCliente, deleteCliente };
+module.exports = { getCliente, addCliente, updateCliente, deleteCliente, getClientes };

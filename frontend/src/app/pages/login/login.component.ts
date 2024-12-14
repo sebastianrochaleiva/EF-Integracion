@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgIf } from '@angular/common';
-import { Login } from '../models/login';
-import { MeseroService } from '../services/mesero.service';
+import { Login } from '../../models/login';
+import { MeseroService } from '../../services/mesero.service';
 
 @Component({
   selector: 'app-login',
