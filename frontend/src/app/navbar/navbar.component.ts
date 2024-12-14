@@ -11,6 +11,9 @@ import { Router, RouterOutlet } from '@angular/router';
 export class NavbarComponent {
   constructor(private router: Router) {}
   isActive(route: string): boolean {
+    if (route === '/updateMesero' && this.router.url.includes('/updateMesero')) {
+      return true;
+    }
     return this.router.url === route;
   }
 }

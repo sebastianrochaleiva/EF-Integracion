@@ -1,0 +1,79 @@
+<app-navbar></app-navbar>
+<section class="container mt-5">
+    <div class="d-flex flex-column align-items-center">
+        <h1 class="fw-bold text-dark mb-4">Gestión de Meseros</h1>
+        <div class="col-12">
+            <h2 class="fw-semibold text-muted mb-3">Lista de Meseros</h2>
+        </div>
+        <div class="col-12 col-md-10">
+            <div class="card-body">
+                <form [formGroup]="addMeseroForm" (ngSubmit)="addMesero()">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" id="nombre" formControlName="nombre" placeholder="Name Example"
+                            title="Por favor ingrese su nombre" class="form-control" />
+                        <div *ngIf="addMeseroForm.get('nombre')?.hasError('required') && addMeseroForm.get('nombre')?.touched"
+                            class="text-danger mt-1">
+                            <span>El nombre <strong>es obligatorio</strong></span>
+                        </div>
+                        <div *ngIf="!addMeseroForm.get('nombre')?.hasError('required') && addMeseroForm.get('nombre')?.touched"
+                            class="mt-1">
+                            <span class="text-muted"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="correo" class="form-label">Correo</label>
+                        <input type="email" id="correo" formControlName="correo" placeholder="example@gmail.com"
+                            title="Por favor ingrese su correo" class="form-control" />
+                        <div *ngIf="addMeseroForm.get('correo')?.hasError('required') && addMeseroForm.get('correo')?.touched"
+                            class="text-danger mt-1">
+                            <span>El correo <strong>es obligatorio</strong></span>
+                        </div>
+                        <div *ngIf="!addMeseroForm.get('correo')?.hasError('required') && addMeseroForm.get('correo')?.touched"
+                            class="mt-1">
+                            <span class="text-muted"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="contraseña" class="form-label">Contraseña</label>
+                        <input type="password" id="contraseña" formControlName="contraseña" placeholder="******"
+                            title="Por favor ingrese su contrasela" class="form-control" />
+                        <div *ngIf="addMeseroForm.get('contraseña')?.hasError('required') && addMeseroForm.get('contraseña')?.touched"
+                            class="text-danger mt-1">
+                            <span>La contraseña <strong>es obligatorio</strong></span>
+                        </div>
+                        <div *ngIf="!addMeseroForm.get('contraseña')?.hasError('required') && addMeseroForm.get('contraseña')?.touched"
+                            class="mt-1">
+                            <span class="text-muted"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label">Telefono</label>
+                        <input type="text" id="telefono" formControlName="telefono" placeholder="999999999"
+                            title="Por favor ingrese su telefono" class="form-control" />
+                        <div *ngIf="addMeseroForm.get('telefono')?.hasError('required') && addMeseroForm.get('telefono')?.touched"
+                            class="text-danger mt-1">
+                            <span>El telefono <strong>es obligatorio</strong></span>
+                        </div>
+                        <div *ngIf="!addMeseroForm.get('telefono')?.hasError('required') && addMeseroForm.get('telefono')?.touched"
+                            class="mt-1">
+                            <span class="text-muted"></span>
+                        </div>
+                    </div>
+
+                    <div *ngIf="errorMessage" class="alert alert-danger">
+                        {{ errorMessage }}
+                    </div>
+
+                    <div class="d-flex justify-content-start">
+                        <button class="btn btn-primary" type="submit" [disabled]="addMeseroForm.invalid">Añadir</button>
+                        <a class="btn btn-secondary ms-3" href="/meseros">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

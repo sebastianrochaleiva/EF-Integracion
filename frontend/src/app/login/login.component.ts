@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgIf } from '@angular/common';
-import { LoginService } from '../services/login.service';
-import { Login } from '../models/mesero';
+import { Login } from '../models/login';
+import { MeseroService } from '../services/mesero.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +16,7 @@ export class LoginComponent {
   loginForm: FormGroup;
   errorMessage: string = '';
 
-  constructor(private fb: FormBuilder, private router: Router, private datalogin: LoginService){
+  constructor(private fb: FormBuilder, private router: Router, private datalogin: MeseroService){
     this.loginForm = this.fb.group({
       correo: ['', Validators.required],
       contraseña: ['', Validators.required],

@@ -27,8 +27,19 @@ const addMesero = async (req, res) => {
 // Obtener todos los meseros
 const getAllMeseros = async (req, res) => {
   try {
-    const meseros = await Mesero.find({ activo: true });
+    //const meseros = await Mesero.find({ activo: true });
+    const meseros = await Mesero.find();
     res.status(200).json({ message: "meseros encontrados", data: meseros });
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};
+
+const getMesero = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const meseros = await Mesero.findById(id);
+    res.status(200).json({ message: "mesero encontrado", data: meseros });
   } catch (error) {
     res.status(500).send(error.message);
   }
@@ -101,5 +112,6 @@ module.exports = {
   getAllMeseros,
   updateMesero,
   deleteMesero,
+  getMesero,
   login
 };

@@ -12,12 +12,12 @@
                     <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
                         <div class="mb-3">
                             <label for="correo" class="form-label">Correo</label>
-                            <input type="email" id="correo" formControlName="correo" placeholder="Delfin04" title="Por favor ingrese su correo" class="form-control" />
+                            <input type="email" id="correo" formControlName="correo" placeholder="example@gmail.com" title="Por favor ingrese su correo" class="form-control" />
                             <div *ngIf="loginForm.get('correo')?.hasError('required') && loginForm.get('correo')?.touched" class="text-danger mt-1">
                                 <span>El correo <strong>es obligatorio</strong></span>
                             </div>
                             <div *ngIf="!loginForm.get('correo')?.hasError('required') && loginForm.get('correo')?.touched" class="mt-1">
-                                <span class="text-muted">Ingrese su correo</span>
+                                <span class="text-muted"></span>
                             </div>
                         </div>
 
@@ -28,7 +28,7 @@
                                 <span>La contraseña <strong>es obligatoria</strong></span>
                             </div>
                             <div *ngIf="!loginForm.get('contraseña')?.hasError('required') && loginForm.get('contraseña')?.touched" class="mt-1">
-                                <span class="text-muted">Ingrese su contraseña</span>
+                                <span class="text-muted"></span>
                             </div>
                         </div>
 

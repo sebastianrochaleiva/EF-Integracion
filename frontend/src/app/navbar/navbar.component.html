@@ -6,7 +6,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link" [class.active]="isActive('/home')" href="/home">Home</a>
-          <a class="nav-link"  [class.active]="isActive('/meseros')" href="/meseros">Meseros</a>
+          <a class="nav-link"  [class.active]="isActive('/meseros' ) || isActive('/addMesero') || isActive('/updateMesero')" href="/meseros">Meseros</a>
         </div>
       </div>
     </div>
