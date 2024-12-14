@@ -26,7 +26,7 @@ const addMesero = async (req, res) => {
 // Obtener todos los meseros
 const getAllMeseros = async (req, res) => {
   try {
-    const meseros = await Mesero.find({ activo: true }); 
+    const meseros = await Mesero.find({ activo: true });
     res.status(200).json({ message: "meseros encontrados", data: meseros });
   } catch (error) {
     res.status(500).send(error.message);
@@ -68,9 +68,27 @@ const deleteMesero = async (req, res) => {
   }
 };
 
+const login = async (req, res) => {
+  try {
+    const { correo, contraseña } = req.body;
+
+    const user = await Mesero.findOne({ correo });
+    if (!user) return res.status(400).json({ message: 'Credenciales inválidas' });
+
+    // Compara la contraseña
+    const isMatch = await bcrypt.compare(contraseña, user.contraseña);
+    if (!isMatch) return res.status(400).json({ message: 'Credenciales inválidas' });
+
+    res.status(200).json({ message: 'Inicio de sesión exitoso' });
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+}
+
 module.exports = {
   addMesero,
   getAllMeseros,
   updateMesero,
   deleteMesero,
+  login
 };
