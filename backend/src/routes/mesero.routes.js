@@ -7,6 +7,6 @@ router.post("/api/mesero", addMesero); // Crear mesero
 router.get("/api/meseros", getAllMeseros); // Obtener todos los meseros
 router.put("/api/mesero/:id", updateMesero); // Actualizar mesero
 router.delete("/api/mesero/:id", deleteMesero); // Eliminar mesero (lógica)
-router.post("/api/login", login); // Logeo
+router.post("/api/auth", login); // Logeo
 
 module.exports = router;
