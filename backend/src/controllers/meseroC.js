@@ -27,8 +27,7 @@ const addMesero = async (req, res) => {
 // Obtener todos los meseros
 const getAllMeseros = async (req, res) => {
   try {
-    //const meseros = await Mesero.find({ activo: true });
-    const meseros = await Mesero.find();
+    const meseros = await Mesero.find({ activo: true });
     res.status(200).json({ message: "meseros encontrados", data: meseros });
   } catch (error) {
     res.status(500).send(error.message);
