@@ -53,7 +53,7 @@
 
                         <div class="mb-3">
                             <label for="telefono" class="form-label">Telefono</label>
-                            <input type="text" id="telefono" formControlName="telefono" placeholder="999999999"
+                            <input type="number" id="telefono" formControlName="telefono" placeholder="999999999"
                                 title="Por favor ingrese su telefono" class="form-control" />
                             <div *ngIf="addMeseroForm.get('telefono')?.hasError('required') && addMeseroForm.get('telefono')?.touched"
                                 class="text-danger mt-1">

@@ -37,13 +37,11 @@ export class AddMeserosComponent {
       activo: this.addMeseroForm.get('activo')?.value,
     }
 
-    // Llamamos al servicio para hacer el POST a la API
     this.dataAdd.addMesero(mesero).subscribe({
       next: (response: any) => {
         this.router.navigate(['/meseros']);
       },
       error: (error: any) => {
-        // Si la solicitud falla, mostramos un mensaje de error
         this.errorMessage = 'Error al añadir. Intente de nuevo.';
       }
     });

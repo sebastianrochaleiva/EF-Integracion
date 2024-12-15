@@ -5,9 +5,9 @@ const router = express.Router();
 
 router.get("/api/categoria", getCategorias);
 router.get("/api/categoria/:id", getCategoria);
-router.post("/api/addCategoria", addCategoria);
-router.delete("/api/deleteCategoria/:id", deleteCategoria);
-router.put("/api/updateCategoria/:id", updateCategoria);
+router.post("/api/categoria", addCategoria);
+router.delete("/api/categoria/:id", deleteCategoria);
+router.put("/api/categoria/:id", updateCategoria);
 
 
 module.exports = router;

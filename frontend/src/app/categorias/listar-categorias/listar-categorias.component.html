@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+<div id="content">
+    <section class="container mt-5">
+        <div class="d-flex flex-column align-items-center">
+            <h1 class="fw-bold text-light mb-4">Gestión de Categorías</h1>
+            <div class="col-12">
+                <h3 class="fw-semibold mb-3">Lista de Categorías</h3>
+                <div class="table-container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th class="text-center">Eliminar</th>
+                                <th class="text-center">Actualizar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let cat of categoria; let i = index">
+                                <td>{{ i + 1 }}</td>
+                                <td>{{ cat.nombre }}</td>
+                                <td>{{ cat.descripcion }}</td>                                
+                                <td class="text-center">
+                                    <button (click)="eliminarCategoria(cat._id)"
+                                        class="btn btn-danger">Eliminar</button>
+                                </td>
+                                <td class="text-center">
+                                    <button [routerLink]="['/updateCategoria', cat._id]"
+                                        class="btn btn-primary">Actualizar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <a class="btn btn-lg btn-warning mt-4" routerLink="/addCategoria">Añadir</a>
+            </div>
+        </div>
+    </section>
+</div>
+<app-footer />

@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+<div id="content">
+    <section class="container mt-5">
+        <div class="d-flex flex-column align-items-center">
+            <h1 class="fw-bold text-light mb-4">Gestión de Meseros</h1>
+            <div class="col-12">
+                <h3 class="fw-semibold mb-3">Actualizar Mesero</h3>
+            </div>
+            <div class="col-12 col-md-10">
+                <div class="card-body text-light">
+                    <form [formGroup]="categoriaForm" (ngSubmit)="actualizarCategoria()">
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" id="nombre" formControlName="nombre" placeholder="Name Example"
+                                title="Por favor ingrese su nombre" class="form-control" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="descripcion" class="form-label">Descripción</label>
+                            <input type="text" id="descripcion" formControlName="descripcion" placeholder="..."
+                                title="Por favor ingrese una descripcion" class="form-control" required />
+                        </div>
+
+                        <div class="d-flex justify-content-start">
+                            <button class="btn btn-warning" type="submit"
+                                [disabled]="categoriaForm.invalid">Actualizar</button>
+                            <a class="btn btn-secondary ms-3" href="/categorias">Cancelar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<app-footer />
