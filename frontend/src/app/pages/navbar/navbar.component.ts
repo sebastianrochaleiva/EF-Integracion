@@ -14,6 +14,9 @@ export class NavbarComponent {
     if (route === '/updateMesero' && this.router.url.includes('/updateMesero')) {
       return true;
     }
+    if (route === '/updateCliente' && this.router.url.includes('/updateCliente')) {
+      return true;
+    }
     if (route === '/updateCategoria' && this.router.url.includes('/updateCategoria')) {
       return true;
     }

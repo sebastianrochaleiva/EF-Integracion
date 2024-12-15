@@ -4,9 +4,9 @@ const { getCliente, addCliente, updateCliente, deleteCliente, getClientes } = re
 const router = express.Router();
 
 router.get("/api/cliente/:id", getCliente);
-router.get("/api/cliente", getClientes);
-router.post("/api/addCliente", addCliente);
-router.put("/api/updateCliente/:id", updateCliente);
-router.delete("/api/deleteCliente/:id", deleteCliente);
+router.get("/api/clientes", getClientes);
+router.post("/api/cliente", addCliente);
+router.put("/api/cliente/:id", updateCliente);
+router.delete("/api/cliente/:id", deleteCliente);
 
 module.exports = router;
