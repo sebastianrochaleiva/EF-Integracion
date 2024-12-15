@@ -1,6 +1,6 @@
 const Mesero = require('../models/mesero');
 const jwt = require('jsonwebtoken');
-const config = require('../database/global');
+const config = require('../global/global');
 const bcrypt = require('bcryptjs');
 
 // Crear nuevo mesero

@@ -3,7 +3,7 @@ import { NavbarComponent } from '../../pages/navbar/navbar.component';
 import { Meseros } from '../../models/meseros';
 import { MeseroService } from '../../services/mesero.service';
 import { NgClass, NgFor } from '@angular/common';
-import { Router, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { FooterComponent } from '../../pages/footer/footer.component';
 
 
@@ -17,7 +17,7 @@ import { FooterComponent } from '../../pages/footer/footer.component';
 export class ListarMeserosComponent implements OnInit {
   meseros: Meseros[] = [];  // Array para almacenar los meseros
 
-  constructor(private meseroService: MeseroService, private router: Router) { }
+  constructor(private meseroService: MeseroService) { }
 
   ngOnInit(): void {
     this.cargarMeseros();  // Cargar la lista de meseros al iniciar el componente
@@ -47,9 +47,6 @@ export class ListarMeserosComponent implements OnInit {
           }
         });
       }
-      this.router.navigate(['/meseros']).then(() => {
-        window.location.reload(); 
-      });
     } else {
       console.error('ID no válido');
     }
